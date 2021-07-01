@@ -1,0 +1,13 @@
+@import url("reset.css");
+
+* {
+  color: papayawhip;
+}
+
+body {
+  background: url(../img/bg.png);
+}
+
+h2 {
+  font-size: 1.5vw;
+}
