@@ -1,13 +1,125 @@
 @import url("reset.css");
 
+@import url("reset.css");
+
 * {
   color: papayawhip;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: 'Leckerli One',
+    cursive;
+}
+
+i {
+  margin: 0 0.5vw;
+}
+
+p,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Fira Sans',
+    sans-serif;
+  font-weight: 300;
 }
 
 body {
   background: url(../img/bg.png);
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-h2 {
+header,
+div,
+footer {
+  width: 100%;
+  display: flex;
+  border: 1px solid red;
+}
+
+header {
+  justify-content: space-between;
+  opacity: 0.7;
+  margin-bottom: 0;
+  position: fixed;
+}
+
+.main {
+  margin: auto 4vw;
+  flex-direction: column;
+}
+
+footer {
+  justify-content: center;
+  opacity: 0.3;
+  position: fixed;
+  bottom: 1vw;
+}
+
+header * {
+  margin: 1vw;
+}
+
+.main div.scene {
+  flex-direction: column;
+  align-items: center;
+}
+
+.main h1 {
+  font-size: 3.5vw;
+  margin: 0.5vw;
+}
+
+.main h2 {
+  font-size: 2.5vw;
+  margin: 0.5vw;
+}
+
+.main p {
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: justify;
   font-size: 1.5vw;
+}
+
+.main .text-area {
+  background-color: rgba(80, 80, 100, 0.3);
+  padding: 1vw;
+  margin: 0.5vw;
+}
+
+.main img {
+  position: relative;
+  height: 17vw;
+  margin-bottom: 0.5vw;
+  box-shadow: 0 0 2vw 0.5vw rgba(0, 0, 0, 0.6);
+}
+
+#scene-1 {
+  display: none;
+}
+
+#scene-1 h1 {
+  font-size: 6vw;
+}
+
+#scene-1 h2 {
+  font-size: 4vw;
+}
+
+#scene-2 {
+  display: none;
+}
+
+#scene-2 p {
+  font-size: 2vw;
+}
+
+#scene-3 {
+  /* display: none; */
 }
