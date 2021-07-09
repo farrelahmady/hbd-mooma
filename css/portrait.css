@@ -103,6 +103,10 @@ header * {
   margin: 1vh;
 }
 
+.main .title {
+  margin: 2.5vh 0;
+}
+
 .main img {
   position: relative;
   height: 25vh;

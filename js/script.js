@@ -8,11 +8,11 @@ function DatenTime() {
 	const day = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-	setInterval(function(){
+	setInterval(() =>{
 		let d = new Date();
-	   let t = d.toLocaleTimeString();
-	   date.innerHTML = day[d.getDay()] + ", " + d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
-	   time.innerHTML = t;
+      let t = d.toLocaleTimeString();
+      date.innerHTML = day[d.getDay()] + ", " + d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
+      time.innerHTML = t;
 	}, 1);
 }
 
@@ -57,10 +57,8 @@ function scene3() {
 
    div.style.display = 'flex'
    div.style.opacity = 0
-   const divMarginTop = getComputedStyle(div).marginTop
    const textAreaHeight = textArea.offsetHeight + 'px'
    textArea.style.height = textAreaHeight
-   div.style.marginTop = divMarginTop
    title.style.display = 'none'
 
    // Start Animation
