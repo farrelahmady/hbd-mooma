@@ -41,26 +41,80 @@ const imgAnim = (elm, src = [], distance, unit = 'px', interval = 10) => {
    changeImg()
 }
 
-const slideDown = (elm, interval = 10, opacity = 1) => {
+const slideDown = (elm, interval = 10) => {
    elm.style.display = 'block'
    elm.style.overflow = 'hidden'
    let elmHeight = elm.offsetHeight
    let height = 0
-   let opc = opacity
    elm.style.height = '0px'
-   elm.style.opacity = opacity
 
    let anim = setInterval(() => {
       elm.style.height = height + 'px'
-      elm.style.opacity = opc
       if (height >= elmHeight) {
          elm.style.height = elmHeight + 'px'
          clearInterval(anim)
       }
       height += elmHeight/(interval*10)
-      opc += 1/(interval*10)
    }, interval);
 
 }
 
-export {imgAnim, slideDown}
+const typeWritting = (elm, text = [], interval = 20, delay = 50) => {
+   elm.innerHTML = ''
+   let arrIndex = 0
+   let strIndex = 0
+   const run = () =>{
+      let str = text[arrIndex]
+      let anim = setInterval(() => {
+         elm.innerHTML += str[strIndex]
+         strIndex++
+         if (strIndex >= str.length) {
+            clearInterval(anim)
+            arrIndex++
+            if (arrIndex < text.length) {
+               setTimeout(() => {
+                  strIndex = 0
+                  elm.innerHTML = ''
+                  run()
+               }, delay);
+            }
+         }
+      }, interval);
+   }
+   run()
+}
+
+const fadeIn = (elm, interval, targetDisplay) => {
+   elm.style.display = 'none'
+   elm.style.opacity = 0
+   elm.style.display = '' + targetDisplay
+   let opc = 0
+   let anim = setInterval(() => {
+      elm.style.opacity = opc
+      if (opc >= 1) {
+         clearInterval(anim)
+         if (targetDisplay !== 'undefine') {
+            elm.style.display = '' + targetDisplay
+         }
+      }
+      opc += 1/(interval*10)
+   }, interval);
+}
+
+const fadeOut = (elm, interval, targetDisplay) => {
+   elm.style.opacity = 1
+   let opc = 1
+   let anim = setInterval(() => {
+      elm.style.opacity = opc
+      if (opc <= 0) {
+         clearInterval(anim)
+         if (targetDisplay !== 'undefine') {
+            elm.style.display = '' + targetDisplay
+         }
+         
+      }
+      opc -= 1/(interval*10)
+   }, interval);
+}
+
+export {imgAnim, slideDown, typeWritting, fadeIn, fadeOut}

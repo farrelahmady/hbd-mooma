@@ -38,7 +38,7 @@ div,
 footer {
   width: 100%;
   display: flex;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 header {
@@ -80,7 +80,7 @@ header * {
 }
 
 .main h1 {
-  font-size: 6vh;
+  font-size: 5vh;
   margin: 1vh;
 }
 
@@ -90,6 +90,7 @@ header * {
 }
 
 .main p {
+  margin: auto;
   font-weight: 400;
   line-height: 1.2;
   text-align: center;
@@ -118,5 +119,5 @@ header * {
 }
 
 #scene-3 {
-  /* display: none; */
+  display: none;
 }
