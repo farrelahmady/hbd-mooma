@@ -45,7 +45,7 @@ function scene2() {
       setTimeout(() => {
          scene3()
       }, 1000);
-   }, 4000);
+   }, 20000);
 }
 
 function scene3() {
@@ -60,31 +60,29 @@ function scene3() {
    const textAreaHeight = textArea.offsetHeight + 'px'
    textArea.style.height = textAreaHeight
    title.style.display = 'none'
-
    // Start Animation
    fadeIn(div, 10, 'flex')
    imgAnim(img, Image, 25, 'vw', 10)
-   typeWritting(paragraph, Text.Scene_3, 50, 2000)
+   typeWritting(paragraph, Text.Scene_3, 50, 3500)
    setTimeout(() => {
       slideDown(title, 10)
       fadeIn(title, 10, 'flex')
-   }, 11000);
+   }, 36000);
    setTimeout(() => {
       fadeOut(div, 10, 'none')
       setTimeout(() => {
          scene4()
-      }, 1000);
-   }, 15000);
+      }, 2000);
+   }, 43000);
 }
 
 function scene4() {
    const div = document.querySelector('#scene-4')
    const img = document.querySelector('#scene-4 img')
-   const title = document.querySelector('#scene-4 h1')
+   const title = document.querySelector('#scene-4 h2')
    const textArea = document.querySelector('#scene-4 .text-area')
    const paragraph = document.querySelector('#scene-4 .text-area p')
    
-   div.style.display = 'none'
    div.style.opacity = 0
    div.style.display = 'flex'
    const textAreaHeight = textArea.offsetHeight + 'px'
@@ -95,11 +93,13 @@ function scene4() {
    let strIndex = 0
    let i = 0
    let opc = 0
-   console.log(text);
+   // console.log(text);
    const run = () => {
       // let str = text[i]
       let str = "TEXT DOA FAYS FAMILY DISINI"
-      const element = Text.Scene_4.fays[i];
+      img.src = "../img/" + Text.Scene_4.img[i]
+      let element = Text.Scene_4.fays[i];
+
       title.innerHTML = element
       let opcAnim = setInterval(() => {
          
@@ -117,22 +117,31 @@ function scene4() {
          if (strIndex >= str.length) {
             clearInterval(textAnim)
             strIndex = 0
-            let fade = setInterval(() => {
-               div.style.opacity = opc
-               if (opc <= 0) {
-                  clearInterval(fade)
-                  div.style.opacity = opc = 0
-                  div.style.display = 'none'
-                  i++
-                  if (i < Text.Scene_4.fays.length) {
-                     paragraph.innerHTML = ''
-                     div.style.display = 'flex'
-                     run()
+            setTimeout(() => {
+               let fade = setInterval(() => {
+                  div.style.opacity = opc
+                  if (opc <= 0) {
+                     clearInterval(fade)
+                     div.style.opacity = opc = 0
+                     div.style.display = 'none'
+                     i++
+                     if (i < Text.Scene_4.fays.length) {
+                        paragraph.innerHTML = ''
+                        div.style.display = 'flex'
+                        setTimeout(() => {
+                           run()   
+                        }, 500);
+                     }else{
+                        div.style.display = 'none'
+                        setTimeout(() => {
+                           scene5()   
+                        }, 1000);
+                        
+                     }
                   }
-               }
-               opc -= 0.01
-            }, 10);
-            
+                  opc -= 0.01
+               }, 10);
+            }, 1500);
          }
       }, 50);
    
@@ -142,5 +151,14 @@ function scene4() {
    run()
 }
 
-scene1()
+function scene5() {
+   const div = document.querySelector('#scene-5')
+
+   div.style.display = 'flex'
+   div.style.opacity = 0
+
+   fadeIn(div, 10, 'flex')
+}
+
+scene3()
 DatenTime()

@@ -7,12 +7,13 @@
 
 h1,
 h2 {
+  text-align: center;
   font-family: 'Leckerli One',
     cursive;
 }
 
-i {
-  margin: 0 0.5vw;
+a {
+  margin: 0 1vw;
 }
 
 p,
@@ -37,7 +38,7 @@ div,
 footer {
   width: 100%;
   display: flex;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 header {
@@ -47,16 +48,26 @@ header {
   position: fixed;
 }
 
-.main {
+.main div {
   margin: auto 4vw;
   flex-direction: column;
 }
 
 footer {
+  margin: 1vw;
+  margin-top: 0;
   justify-content: center;
   opacity: 0.3;
   position: fixed;
-  bottom: 1vw;
+  bottom: 0;
+}
+
+footer {
+  margin-top: 0;
+  justify-content: center;
+  opacity: 0.3;
+  position: fixed;
+  bottom: 1vh;
 }
 
 header * {
@@ -69,18 +80,19 @@ header * {
 }
 
 .main h1 {
-  font-size: 3.5vw;
-  margin: 0.5vw;
+  font-size: 4vw;
+  margin: 1vw;
 }
 
 .main h2 {
-  font-size: 2.5vw;
-  margin: 0.5vw;
+  font-size: 3vw;
+  margin: 1vw;
 }
 
 .main p {
+  margin: auto;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1;
   text-align: justify;
   font-size: 1.5vw;
 }
@@ -88,13 +100,17 @@ header * {
 .main .text-area {
   background-color: rgba(80, 80, 100, 0.3);
   padding: 1vw;
-  margin: 0.5vw;
+  margin: 1vw;
+}
+
+.main .title {
+  margin: 2.5vh 0;
 }
 
 .main img {
   position: relative;
-  height: 17vw;
-  margin-bottom: 0.5vw;
+  height: 15vw;
+  margin-bottom: 1.5vh;
   box-shadow: 0 0 2vw 0.5vw rgba(0, 0, 0, 0.6);
 }
 
@@ -102,22 +118,18 @@ header * {
   display: none;
 }
 
-#scene-1 h1 {
-  font-size: 6vw;
-}
-
-#scene-1 h2 {
-  font-size: 4vw;
-}
-
 #scene-2 {
   display: none;
 }
 
-#scene-2 p {
-  font-size: 2vw;
+#scene-3 {
+  display: none;
 }
 
-#scene-3 {
-  /* display: none; */
+#scene-4 {
+  display: none;
+}
+
+#scene-5 {
+  display: none;
 }

@@ -64,6 +64,8 @@ const typeWritting = (elm, text = [], interval = 20, delay = 50) => {
    let arrIndex = 0
    let strIndex = 0
    const run = () =>{
+      elm.style.opacity = 0
+      fadeIn(elm, 10, 'block')
       let str = text[arrIndex]
       let anim = setInterval(() => {
          elm.innerHTML += str[strIndex]
@@ -73,6 +75,7 @@ const typeWritting = (elm, text = [], interval = 20, delay = 50) => {
             arrIndex++
             if (arrIndex < text.length) {
                setTimeout(() => {
+                  fadeOut(elm, 10, 'block')
                   strIndex = 0
                   elm.innerHTML = ''
                   run()
