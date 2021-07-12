@@ -40,8 +40,10 @@ function scene2() {
    
    div.style.display = 'flex'
    div.style.opacity = 0
-   const textAreaHeight = textArea.offsetHeight + 'px'
-   textArea.style.height = textAreaHeight
+   paragraph.innerHTML = Text.Scene_2[0]
+   let textAreaHeight = paragraph.clientHeight + 'px'
+   alert(textAreaHeight)
+   // textArea.style.height = textAreaHeight
 
    let typingSound = new Audio("../sound/typewrite.wav")
    typingSound.oncanplay = () => {
@@ -50,7 +52,7 @@ function scene2() {
       typingSound.muted = false
       typingSound.loop = true
    }
-   typeWritting(paragraph, Text.Scene_2, 50, 2000)
+   // typeWritting(paragraph, Text.Scene_2, 50, 2000)
    fadeIn(div, 10, 'flex')
    setTimeout(() => {
       typingSound.pause()
@@ -85,7 +87,7 @@ function scene3() {
    div.style.opacity = 0
    const textAreaHeight = textArea.offsetHeight + 'px'
    console.log(textAreaHeight);
-   textArea.style.height = textAreaHeight
+   // textArea.style.height = textAreaHeight
    title.style.display = 'none'
    // Start Animation
    fadeIn(div, 10, 'flex')

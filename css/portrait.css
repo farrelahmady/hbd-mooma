@@ -130,8 +130,10 @@ header * {
   display: none;
 }
 
-#scene-3 .text-area {
-  max-height: 220px;
+.text-area {
+  min-height: 25vh;
+  max-height: 50vh;
+  overflow: auto;
 }
 
 #scene-5 {

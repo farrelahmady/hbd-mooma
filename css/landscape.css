@@ -131,7 +131,9 @@ header * {
 }
 
 .text-area {
-  max-height: 180px;
+  min-height: 20vh;
+  max-height: 40vh;
+  overflow: auto;
 }
 
 #scene-4 {
