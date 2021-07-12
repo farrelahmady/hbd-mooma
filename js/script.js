@@ -42,7 +42,7 @@ function scene2() {
    div.style.opacity = 0
    paragraph.innerHTML = Text.Scene_2[0]
    let textAreaHeight = paragraph.clientHeight + 'px'
-   alert(textAreaHeight)
+   // alert(textAreaHeight)
    // textArea.style.height = textAreaHeight
 
    let typingSound = new Audio("../sound/typewrite.wav")
@@ -52,7 +52,7 @@ function scene2() {
       typingSound.muted = false
       typingSound.loop = true
    }
-   // typeWritting(paragraph, Text.Scene_2, 50, 2000)
+   typeWritting(paragraph, Text.Scene_2, 50, 2000)
    fadeIn(div, 10, 'flex')
    setTimeout(() => {
       typingSound.pause()
