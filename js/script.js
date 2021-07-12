@@ -68,8 +68,79 @@ function scene3() {
    setTimeout(() => {
       slideDown(title, 10)
       fadeIn(title, 10, 'flex')
-   }, 4000);
+   }, 11000);
+   setTimeout(() => {
+      fadeOut(div, 10, 'none')
+      setTimeout(() => {
+         scene_4()
+      }, 1000);
+   }, 15000);
 }
 
-scene1()
+function scene_4() {
+   const div = document.querySelector('#scene-4')
+   const img = document.querySelector('#scene-4 img')
+   const title = document.querySelector('#scene-4 h1')
+   const textArea = document.querySelector('#scene-4 .text-area')
+   const paragraph = document.querySelector('#scene-4 .text-area p')
+   
+   div.style.display = 'none'
+   div.style.opacity = 0
+   div.style.display = 'flex'
+   const textAreaHeight = textArea.offsetHeight + 'px'
+   textArea.style.height = textAreaHeight
+   paragraph.innerHTML = ''
+
+   let text = Text.Scene_4.doa
+   let strIndex = 0
+   let i = 0
+   let opc = 0
+   console.log(text);
+   const run = () => {
+      // let str = text[i]
+      let str = "TEXT DOA FAYS FAMILY DISINI"
+      const element = Text.Scene_4.fays[i];
+      title.innerHTML = element
+      let opcAnim = setInterval(() => {
+         
+         div.style.opacity = opc
+         if (opc >= 1) {
+            clearInterval(opcAnim)
+            div.style.opacity = opc = 1
+         }
+         opc += 0.01
+      }, 10);
+
+      let textAnim = setInterval(() => {
+         paragraph.innerHTML += str[strIndex]
+         strIndex++
+         if (strIndex >= str.length) {
+            clearInterval(textAnim)
+            strIndex = 0
+            let fade = setInterval(() => {
+               div.style.opacity = opc
+               if (opc <= 0) {
+                  clearInterval(fade)
+                  div.style.opacity = opc = 0
+                  div.style.display = 'none'
+                  i++
+                  if (i < Text.Scene_4.fays.length) {
+                     paragraph.innerHTML = ''
+                     div.style.display = 'flex'
+                     run()
+                  }
+               }
+               opc -= 0.01
+            }, 10);
+            
+         }
+      }, 50);
+   
+      
+   }
+   
+   run()
+}
+
+scene_4()
 DatenTime()
