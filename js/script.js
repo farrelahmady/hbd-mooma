@@ -106,7 +106,7 @@ function scene3() {
       setTimeout(() => {
          scene4()
       }, 2000);
-   }, 43000);
+   }, 45000);
 }
 
 function scene4() {
