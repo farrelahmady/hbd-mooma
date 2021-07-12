@@ -130,6 +130,10 @@ header * {
   display: none;
 }
 
+#scene-3 .text-area {
+  max-height: 220px;
+}
+
 #scene-5 {
   display: none;
 }
