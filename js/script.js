@@ -72,12 +72,12 @@ function scene3() {
    setTimeout(() => {
       fadeOut(div, 10, 'none')
       setTimeout(() => {
-         scene_4()
+         scene4()
       }, 1000);
    }, 15000);
 }
 
-function scene_4() {
+function scene4() {
    const div = document.querySelector('#scene-4')
    const img = document.querySelector('#scene-4 img')
    const title = document.querySelector('#scene-4 h1')
@@ -142,5 +142,5 @@ function scene_4() {
    run()
 }
 
-scene_4()
+scene1()
 DatenTime()
