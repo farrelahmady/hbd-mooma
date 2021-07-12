@@ -9,7 +9,7 @@ const Text = {
             "Selalu diberi kesehatan, happy trus, panjang umur", 
             "Smoga mama sehat selalu, bahagia selalu dan dilimpahkan rejeki serta panjang umur", 
             "semoga mama selalu dilimpahkan kebahagiaan dan diberikan kesehatan agar dapat melihat anak-anak kesayangannya tumbuh dewasa seperti apa yang diimpikan mama dan papa", 
-            "Doa Papa"],
+            "Semoga selalu diberi umur yang panjangg, kesehatan, kesabaran, rezeki, doa doa nya dikabulkan.. Selebihnya seperti yang dibilang anak - anak"],
             img:["a.webp", "b.webp", "c.webp", "d.webp", "e.webp"]}
 }
 

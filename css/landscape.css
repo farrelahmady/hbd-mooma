@@ -26,6 +26,10 @@ h6 {
   font-weight: 300;
 }
 
+h4 {
+  font-size: 1.3vw;
+}
+
 body {
   background: url(../img/bg.png);
   height: 100vh;
@@ -92,7 +96,7 @@ header * {
 .main p {
   margin: auto;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.2;
   text-align: justify;
   font-size: 1.5vw;
 }
@@ -124,6 +128,11 @@ header * {
 
 #scene-3 {
   display: none;
+}
+
+.text-area {
+  max-height: 180px;
+  overflow: auto;
 }
 
 #scene-4 {

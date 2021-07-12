@@ -1,6 +1,11 @@
 import { Text, Image } from "./res.js";
 import { fadeIn, fadeOut, imgAnim, slideDown, typeWritting } from "./animation.js";
 
+const music = document.querySelector("#music")
+const hbd = document.querySelector("#hbd")
+
+let scene3Flag = true
+
 
 function DatenTime() {
    const date = document.querySelectorAll('header h4')[0]
@@ -38,13 +43,34 @@ function scene2() {
    const textAreaHeight = textArea.offsetHeight + 'px'
    textArea.style.height = textAreaHeight
 
-   fadeIn(div, 10, 'flex')
+   let typingSound = new Audio("../sound/typewrite.wav")
+   typingSound.oncanplay = () => {
+      typingSound.muted = true
+      typingSound.play()
+      typingSound.muted = false
+      typingSound.loop = true
+   }
    typeWritting(paragraph, Text.Scene_2, 50, 2000)
+   fadeIn(div, 10, 'flex')
    setTimeout(() => {
-      fadeOut(div, 10, 'none')
-      setTimeout(() => {
-         scene3()
-      }, 1000);
+      typingSound.pause()
+   }, 18000);
+   setTimeout(() => {
+      
+      music.src = "../sound/music.mp3"
+      music.loop = true
+      music.oncanplay = () =>{
+         fadeOut(div, 10, 'none')
+         music.muted = true
+         music.play()
+         music.muted = false
+         if (scene3Flag) {
+            scene3Flag = false
+            setTimeout(() => {
+               scene3()
+            }, 1000);
+         }
+      }
    }, 20000);
 }
 
@@ -58,6 +84,7 @@ function scene3() {
    div.style.display = 'flex'
    div.style.opacity = 0
    const textAreaHeight = textArea.offsetHeight + 'px'
+   console.log(textAreaHeight);
    textArea.style.height = textAreaHeight
    title.style.display = 'none'
    // Start Animation
@@ -65,8 +92,14 @@ function scene3() {
    imgAnim(img, Image, 25, 'vw', 10)
    typeWritting(paragraph, Text.Scene_3, 50, 3500)
    setTimeout(() => {
-      slideDown(title, 10)
-      fadeIn(title, 10, 'flex')
+      hbd.src = "../sound/hbd.mp3"
+      hbd.oncanplay = () => {
+         hbd.muted = true
+         hbd.play()
+         hbd.muted = false
+         slideDown(title, 10)
+         fadeIn(title, 10, 'flex')
+      }
    }, 36000);
    setTimeout(() => {
       fadeOut(div, 10, 'none')
@@ -88,16 +121,43 @@ function scene4() {
    const textAreaHeight = textArea.offsetHeight + 'px'
    textArea.style.height = textAreaHeight
    paragraph.innerHTML = ''
+   img.style.display = 'none'
+   textArea.style.display = 'none'
 
    let text = Text.Scene_4.doa
    let strIndex = 0
    let i = 0
    let opc = 0
+
+   let opcAnim = setInterval(() => {
+         div.style.opacity = opc
+         if (opc >= 1) {
+            clearInterval(opcAnim)
+            div.style.opacity = opc = 1
+            setTimeout(() => {
+               let fade = setInterval(() => {
+                  div.style.opacity = opc
+                  if (opc <= 0) {
+                     clearInterval(fade)
+                     div.style.opacity = opc = 0
+                     // div.style.display = 'none'
+                     img.style.display = 'block'
+                     textArea.style.display = 'flex'
+                     img.src = "../img/" + Text.Scene_4.img[i]
+                  }
+                  opc -= 0.01
+               }, 10);
+            }, 1000);
+            
+         }
+         opc += 0.01
+      }, 10);
+
+   
    // console.log(text);
    const run = () => {
-      // let str = text[i]
-      let str = "TEXT DOA FAYS FAMILY DISINI"
-      img.src = "../img/" + Text.Scene_4.img[i]
+      let str = text[i]
+      // let str = "TEXT DOA FAYS FAMILY DISINI"
       let element = Text.Scene_4.fays[i];
 
       title.innerHTML = element
@@ -129,7 +189,7 @@ function scene4() {
                         paragraph.innerHTML = ''
                         div.style.display = 'flex'
                         setTimeout(() => {
-                           run()   
+                           img.src = "../img/" + Text.Scene_4.img[i]  
                         }, 500);
                      }else{
                         div.style.display = 'none'
@@ -147,8 +207,8 @@ function scene4() {
    
       
    }
+   img.onload = run
    
-   run()
 }
 
 function scene5() {
